@@ -10,17 +10,16 @@ android {
         def propertiesSign = new Properties()
         propertiesSign.load(new FileInputStream(rootProject.getRootDir().getAbsolutePath() + "/local.properties"))
 
-        azurjpBuild {
-            storeFile file(propertiesSign["SignPathAzurLaneJP"])
-            keyAlias = 'jephy'
-            storePassword 'yongshi'
-            keyPassword 'yongshi'
+        lzpBuild {
+            storeFile file(propertiesSign["SignPathLzp"])
+            keyAlias = 'android'
+            storePassword 'android'
+            keyPassword 'android'
         }
     }
 
     defaultConfig {
-//        applicationId "com.lzp.amazondemo"
-        applicationId "com.YoStarJP.AzurLane"
+        applicationId "com.lzp.amazondemo"
         minSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -34,7 +33,7 @@ android {
             shrinkResources false
             zipAlignEnabled false
 
-            signingConfig signingConfigs.azurjpBuild
+            signingConfig signingConfigs.lzpBuild
         }
         release {
             minifyEnabled false
